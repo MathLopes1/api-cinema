@@ -9,9 +9,8 @@ export class CreateVideos1646760961864 implements MigrationInterface {
                 columns:[
                     {
                         name: 'id',
-                        type: 'varchar',
-                        isPrimary: true,
-                        generationStrategy: 'uuid',
+						type: 'uuid',
+						isPrimary: true,
                     },
                     {
                         name: "name",
@@ -24,7 +23,7 @@ export class CreateVideos1646760961864 implements MigrationInterface {
                     },
                     {
                         name: "category_id",
-                        type: "varchar"
+                        type: "uuid"
                     },
                     {
                         name: "duration",
@@ -51,7 +50,6 @@ export class CreateVideos1646760961864 implements MigrationInterface {
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.dropTable("videos")
     }
-
 }
 
 // npm run typeorm -- migration:create -n
