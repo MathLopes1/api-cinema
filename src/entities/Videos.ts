@@ -5,6 +5,12 @@ import { Category } from "./Category";
 @Entity("videos")
 export class Video {
 
+    constructor(){
+        if(!this.id){
+            this.id = uuid()
+        }
+    }
+    
     @PrimaryColumn()
     id: string;
 
@@ -27,9 +33,4 @@ export class Video {
     @CreateDateColumn()
     created_at: Date;
 
-    constructor(){
-        if(!this.id){
-            this.id == uuid()
-        }
-    }
 }
