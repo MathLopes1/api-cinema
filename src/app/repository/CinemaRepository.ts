@@ -6,10 +6,12 @@ type categoryRequest = {
     description: string;
 };
 
-export class CinemaService {
+export class CinemaRepository{
+    
     async create ({name, description}: categoryRequest): Promise<Category | Error>{
         const repo = getRepository(Category)
-        
+        await repo.findOne({name})
+
         if( await repo.findOne({name})){
             return new Error("Category already exists")
         }
@@ -23,20 +25,17 @@ export class CinemaService {
         return category
     }
 
-    async find(){
+    async find (){
         const repo = getRepository(Category)
-
         const category = repo.find();
-        return category;
+        return category
     }
 
-    async findId(id: string): Promise <Category | Error>{
+    async findId(id: string): Promise<Category>{
         const repo = getRepository(Category)
         const category = await repo.findOne(id)
-        if(!category){
-            return new Error('Category does not exists!'); 
-        }
-        return category;
+        
+        return category
     }
 
     async updated(id: string, payload: Category): Promise <Category | Error>{
@@ -44,15 +43,14 @@ export class CinemaService {
         if(!(await repo.findOne(id))){
             return new Error('Category does not exists!');
         }
-        await repo.update(id,payload)
+       await repo.update(id,payload)
     }
 
-    async delete(id: string){
+    async delete (id: string){
         const repo = getRepository(Category)
         if(!(await repo.findOne(id))){
             return new Error('Category does not exists!');
         }
         await repo.delete(id)   
     }
-
 }

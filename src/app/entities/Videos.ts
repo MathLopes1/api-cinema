@@ -32,5 +32,5 @@ export class Video {
 
     @CreateDateColumn()
     created_at: Date;
-
+    
 }

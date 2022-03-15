@@ -1,5 +1,5 @@
 import {Router} from "express";
-import { CinemaController } from "../controllers/CinemaController";
+import { CinemaController } from "../app/controllers/CinemaController";
 
 const Cinemacontrollers = new CinemaController;
 const router = Router();
