@@ -1,16 +1,15 @@
-import {Entity, Column, CreateDateColumn, PrimaryColumn, ManyToOne, JoinColumn} from "typeorm"
-import {v4 as uuid} from "uuid"
-import { Category } from "./Category";
+import { Entity, Column, CreateDateColumn, PrimaryColumn, ManyToOne, JoinColumn } from 'typeorm'
+import { v4 as uuid } from 'uuid'
+import { Category } from './Category'
 
-@Entity("videos")
+@Entity('videos')
 export class Video {
-
-    constructor(){
-        if(!this.id){
-            this.id = uuid()
-        }
+  constructor () {
+    if (!this.id) {
+      this.id = uuid()
     }
-    
+  }
+
     @PrimaryColumn()
     id: string;
 
@@ -25,12 +24,11 @@ export class Video {
 
     @Column()
     category_id: string;
-    
-    @ManyToOne(()=> Category)
-    @JoinColumn({name: "category_id"})
+
+    @ManyToOne(() => Category)
+    @JoinColumn({ name: 'category_id' })
     category: Category;
 
     @CreateDateColumn()
     created_at: Date;
-    
 }
