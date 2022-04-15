@@ -15,12 +15,7 @@ API REST para registro de vídeos. Foi desenvolvida com base em um projeto da Ro
  ## 🧠 Contexto
 > **Característica do Desafio:** 🚧  *API REST FULL*  🚧
 
-Este [desafio](https://github.com/br3nds0n/project/files/8007925/Desafio01-Sprint02.pdf) será a criação de um "trelo" ou "bloco de notas" para o cadastro de tasks. Nesta API terá os fluxos de:
-
  * Interação de métodos http. (criar, buscar, editar e remover);
- * Busca por query params;
- * Paginação;
-
 
  ### 📔 Project
 > Rota: `http://localhost:3000/categories`
